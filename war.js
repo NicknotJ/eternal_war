@@ -1,3 +1,4 @@
+//I need to create a shuffling mechanism... 
 const deck = [];
 for(let x = 2; x <= 14; x++){
   deck.push({value: x, suit: 'spade'});

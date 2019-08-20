@@ -1,18 +1,15 @@
 const player = require('../player.js');
-const war = require('../war.js');
 const chai = require('chai');
 const assert = chai.assert;
 
 describe('Player Class', () => {
+  let player1 = new player.Player('player1');
   it('Should have a name based off input', () => {
-    assert.equal(player.player1.name, 'player1');
+    assert.equal(player1.name, 'player1');
   });
-  it('Should have a starting hand the size of input or default 10', () => {
-    assert.equal(player.player1.startingHandSize, 26);
-    assert.equal(player.player2.startingHandSize, 26);
+  it('Should have a starting hand the size of input or default 26', () => {
+    assert.equal(player1.startingHandSize, 26);
+    let player2 = new player.Player('player2', 10);
+    assert.equal(player2.startingHandSize, 10);
   });
-  it('Should have a method to create the player`s deck', () => {
-    assert.isDefined(player.player1.createPlayerDeck, 'createPlayerDeck is defined');
-    assert.isDefined(player.player1.createPlayerDeck(26), 26);
-  })
 })
