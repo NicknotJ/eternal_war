@@ -5,7 +5,7 @@ const war = require('../war');
 describe('Player Class', () => {
   let player1 = new player.Player('player1');
   let player2 = new player.Player('player2', 10);
-  const tempDeck = war.deck.slice(0);
+  let tempDeck = war.deck.slice(0);
   it('Should have a name based off input', () => {
     assert.equal(player1.name, 'player1');
   });
@@ -19,6 +19,8 @@ describe('Player Class', () => {
     assert.equal(player1.playerDeck.length, 26);
     player2.createPlayerDeck(player2.startingHandSize, tempDeck);
     assert.equal(player2.playerDeck.length, 10);
+    console.log('player1 playerDeck:', player1.playerDeck);
+    console.log('player2 playerDeck:', player2.playerDeck);
   });
   it('Should have a playCard method that pops/returns the last card of the playerdeck', () => {
     assert.equal(player1.playerDeck[player1.playerDeck.length - 1], player1.playCard());
@@ -27,7 +29,18 @@ describe('Player Class', () => {
   it('Should have a receiveCard method that unshifts the card given into the playerdeck', () => {
     let randomValue = Math.floor(Math.random() * 13) + 1;
     let tempCard = {value: randomValue, suit: 'spade'};
+    assert.isDefined(player1.receiveCard, 'receiveCard is defined');
     player1.receiveCard(tempCard);
     assert.equal(player1.playerDeck[0], tempCard);
-  })
+  });
+  it('Should have a checkStatus method that checks the player deck, setting values to false if necessary', () => {
+    assert.isDefined(player2.checkStatus, 'checkStatus is defined');
+    for(let x = 0; x < 10; x++){
+      console.log(player2.playerDeck)
+      player2.playCard();
+    }
+    player2.checkStatus();
+    assert.equal(player2.playing, false);
+    assert.equal(player2.lost, true);
+  });
 })

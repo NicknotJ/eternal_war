@@ -10,8 +10,8 @@ class Player {
   //playerDeck should be a queue eventually
   createPlayerDeck(num, deck){
     for(let x = 0; x < num; x++){
-      let newCard = Math.floor(Math.random() * deck.length);
-      this.playerDeck.push(newCard);
+      let newCard = deck.splice(Math.floor(Math.random() * deck.length), 1);
+      this.playerDeck.push(newCard[0]);
     }
   }
 
@@ -21,6 +21,13 @@ class Player {
   receiveCard(card){
     this.playerDeck.unshift(card);
   }
+  checkStatus(){
+    if(!this.playerDeck.length){
+      this.playing = false;
+      this.lost = true;
+    }
+  }
+
 }
 
 //52 cards in a deck. Suits are numbered 2-10 -> Jack-> Queen -> King -> Ace
