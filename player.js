@@ -4,6 +4,8 @@ class Player {
     this.name = name;
     this.startingHandSize = startingHandSize;
     this.playerDeck = playerDeck;
+    this.playing = true;
+    this.lost = false;
   }
   //playerDeck should be a queue eventually
   createPlayerDeck(num, deck){
@@ -11,6 +13,13 @@ class Player {
       let newCard = Math.floor(Math.random() * deck.length);
       this.playerDeck.push(newCard);
     }
+  }
+
+  playCard(){
+    return this.playerDeck.pop();
+  }
+  receiveCard(card){
+    this.playerDeck.unshift(card);
   }
 }
 
@@ -21,5 +30,4 @@ class Player {
 
 module.exports = {
   Player
-  
 }

@@ -19,6 +19,9 @@ describe('Player Class', () => {
     assert.equal(player1.playerDeck.length, 26);
     player2.createPlayerDeck(player2.startingHandSize, tempDeck);
     assert.equal(player2.playerDeck.length, 10);
-    
   });
+  it('Should have a playCard method that pops/returns the last card of the playerdeck', () => {
+    assert.equal(player1.playerDeck[player1.playerDeck.length - 1], player1.playCard());
+    assert.equal(player1.playerDeck.length, 25);
+  })
 })
