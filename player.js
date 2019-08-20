@@ -3,6 +3,10 @@ class Player {
     this.name = name;
     this.startingHandSize = startingHandSize;
   }
+
+  createPlayerDeck(num){
+    return num;
+  }
 }
 
 //52 cards in a deck. Suits are numbered 2-10 -> Jack-> Queen -> King -> Ace

@@ -11,4 +11,8 @@ describe('Player Class', () => {
     assert.equal(player.player1.startingHandSize, 26);
     assert.equal(player.player2.startingHandSize, 26);
   });
+  it('Should have a method to create the player`s deck', () => {
+    assert.isDefined(player.player1.createPlayerDeck, 'createPlayerDeck is defined');
+    assert.isDefined(player.player1.createPlayerDeck(26), 26);
+  })
 })
