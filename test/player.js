@@ -23,5 +23,11 @@ describe('Player Class', () => {
   it('Should have a playCard method that pops/returns the last card of the playerdeck', () => {
     assert.equal(player1.playerDeck[player1.playerDeck.length - 1], player1.playCard());
     assert.equal(player1.playerDeck.length, 25);
+  });
+  it('Should have a receiveCard method that unshifts the card given into the playerdeck', () => {
+    let randomValue = Math.floor(Math.random() * 13) + 1;
+    let tempCard = {value: randomValue, suit: 'spade'};
+    player1.receiveCard(tempCard);
+    assert.equal(player1.playerDeck[0], tempCard);
   })
 })
