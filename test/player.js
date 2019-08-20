@@ -9,5 +9,5 @@ describe('Player Class', () => {
   it('Should have a starting hand the size of input or default 10', () => {
     assert.equal(player.player1.startingHandSize, 10);
     assert.equal(player.player2.startingHandSize, 26);
-  })
+  });
 })

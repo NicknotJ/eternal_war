@@ -12,6 +12,20 @@ class Player {
 const player1 = new Player('player1');
 const player2 = new Player('player2', 26);
 
+const deck = [];
+for(let x = 2; x <= 14; x++){
+  deck.push({value: x, suit: 'spade'});
+}
+for(let x = 2; x <= 14; x++){
+  deck.push({value: x, suit: 'heart'});
+}
+for(let x = 2; x <= 14; x++){
+  deck.push({value: x, suit: 'club'});
+}
+for(let x = 2; x <= 14; x++){
+  deck.push({value: x, suit: 'diamond'});
+}
+console.log(deck);
 module.exports = {
   player1,
   player2
