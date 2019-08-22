@@ -5,6 +5,10 @@ class warGame {
     this.pile = pile;
     this.players = players;
   }
+  join(player){
+    this.players.push(player);
+    this.numPlayers++;
+  }
 }
 
 module.exports = {
