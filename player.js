@@ -1,4 +1,4 @@
-const war = require('./war');
+const deck = require('./deck');
 class Player {
   constructor(name, startingHandSize = 26, playerDeck = []){
     this.name = name;

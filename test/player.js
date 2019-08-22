@@ -1,11 +1,11 @@
 const player = require('../player.js');
 const chai = require('chai');
 const assert = chai.assert;
-const war = require('../war');
+const deck = require('../deck');
 describe('Player Class', () => {
   let player1 = new player.Player('player1');
   let player2 = new player.Player('player2', 10);
-  let tempDeck = war.deck.slice(0);
+  let tempDeck = deck.deck.slice(0);
   it('Should have a name based off input', () => {
     assert.equal(player1.name, 'player1');
   });
