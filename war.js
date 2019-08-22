@@ -18,6 +18,14 @@ class warGame {
   removePile(){
     return this.pile.pop();
   }
+  removePlayer(playerName){
+    for(let x = 0; x < this.players.length; x++){
+      if(players[x].name === playerName){
+        console.log(`${this.players.splice()} has been removed from the game!`);
+        break;
+      }
+    }
+  }
 }
 
 module.exports = {
