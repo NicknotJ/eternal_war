@@ -19,8 +19,6 @@ describe('Player Class', () => {
     assert.equal(player1.playerDeck.length, 26);
     player2.createPlayerDeck(player2.startingHandSize, tempDeck);
     assert.equal(player2.playerDeck.length, 10);
-    console.log('player1 playerDeck:', player1.playerDeck);
-    console.log('player2 playerDeck:', player2.playerDeck);
   });
   it('Should have a playCard method that pops/returns the last card of the playerdeck', () => {
     assert.equal(player1.playerDeck[player1.playerDeck.length - 1], player1.playCard());
@@ -36,11 +34,17 @@ describe('Player Class', () => {
   it('Should have a checkStatus method that checks the player deck, setting values to false if necessary', () => {
     assert.isDefined(player2.checkStatus, 'checkStatus is defined');
     for(let x = 0; x < 10; x++){
-      console.log(player2.playerDeck)
       player2.playCard();
     }
     player2.checkStatus();
     assert.equal(player2.playing, false);
     assert.equal(player2.lost, true);
   });
+  it('Should have a quit method that removes all cards from the player deck and sets player status to loss', () => {
+    assert.isDefined(player1.quit, 'quit is defined');
+    player1.quit();
+    assert.equal(player1.playerDeck.length, 0);
+    assert.equal(player1.playing, false);
+    assert.equal(player1.lost,  true);
+  })
 })
