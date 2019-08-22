@@ -14,7 +14,6 @@ class Player {
       this.playerDeck.push(newCard[0]);
     }
   }
-
   playCard(){
     return this.playerDeck.pop();
   }
@@ -27,7 +26,14 @@ class Player {
       this.lost = true;
     }
   }
-
+  quit(){
+    let length = this.playerDeck.length;
+    for(let x = 0; x < length; x++){
+      this.playCard();
+    }
+    this.playing = false;
+    this.lost = true;
+  }
 }
 
 //52 cards in a deck. Suits are numbered 2-10 -> Jack-> Queen -> King -> Ace

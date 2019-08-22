@@ -46,5 +46,5 @@ describe('Player Class', () => {
     assert.equal(player1.playerDeck.length, 0);
     assert.equal(player1.playing, false);
     assert.equal(player1.lost,  true);
-  })
+  });
 })
