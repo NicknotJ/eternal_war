@@ -8,5 +8,29 @@ describe('warGame', () => {
   const newGame = new war.warGame(4);
   it('Should have a parameter with the number of players', () => {
     assert.equal(newGame.numPlayers, 4);
+  });
+  it('Should have a parameter called winner that starts undefined', () => {
+    assert.equal(newGame.winner, undefined);
+  });
+  it('Should have a parameter called pile that defaults to an empty array OR is an input', () => {
+    assert.equal(newGame.pile[0], undefined);
+    let example = new war.warGame(4, ['Some random stuff']);
+    assert.equal(example.pile[0], 'Some random stuff');
+    assert.equal(example.pile.length, 1);
+  });
+  it('Should have a parameter called players that defaults to an empty array OR is the input', () => {
+    assert.equal(newGame.players[0], undefined);
+    let example = new war.warGame(4, ['Some random stuff'], [{}, {}, 'Some random stuff']);
+    assert.equal(example.players.length, 3);
+    assert.equal(example.players[2], 'Some random stuff');
   })
 })
+
+/*class warGame {
+  constructor(numPlayers, pile = [], players = []){
+    this.numPlayers = numPlayers;
+    this.winner = undefined;
+    this.pile = pile;
+    this.players = players;
+  }
+}*/

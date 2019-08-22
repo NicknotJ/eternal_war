@@ -1,9 +1,9 @@
 class warGame {
-  constructor(numPlayers){
+  constructor(numPlayers, pile = [], players = []){
     this.numPlayers = numPlayers;
     this.winner = undefined;
-    this.pile = [];
-    this.players = [];
+    this.pile = pile;
+    this.players = players;
   }
 }
 
