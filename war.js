@@ -34,6 +34,12 @@ class warGame {
       player.receiveCard(card);
     }
   }
+  receiveCards(){
+    //This should probably also check if the player has any cards. no cards = remove from game
+    for(let x = 0; x < this.players.length; x++){
+      this.addPile(this.players[x].playCard());
+    }
+  }
 }
 
 module.exports = {
