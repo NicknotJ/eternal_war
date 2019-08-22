@@ -26,9 +26,9 @@ describe('warGame', () => {
   });
   it('Should have a method called join which adds a player to the players parameter', () => {
     assert.isDefined(newGame.join, 'join is defined');
-    newGame.join({name: 'player3'});
+    newGame.join({name: 'player0'});
     assert.equal(newGame.players.length, 1);
-    assert.equal(newGame.players[0].name, 'player3');
+    assert.equal(newGame.players[0].name, 'player0');
   });
   it('Should have a method called addPile which adds a card to the pile', () => {
     assert.isDefined(newGame.addPile, 'addPile is defined');
@@ -40,6 +40,16 @@ describe('warGame', () => {
     assert.equal(newGame.removePile().value, 4);
     assert.equal(newGame.pile.length, 0);
   });
+  it('Should have a method called removePlayer which removes a player from the players array', () => {
+    assert.isDefined(newGame.removePlayer, 'removePlayer is defined');
+    newGame.join({name: 'player1'});
+    newGame.join({name: 'player2'});
+    assert.equal(newGame.players.length, 3);
+    assert.equal(newGame.players[1].name, 'player1');
+    newGame.removePlayer('player1');
+    assert.equal(newGame.players[1].name, 'player2');
+    assert.equal(newGame.players.length, 2);
+  })
 })
 
 /*class warGame {
