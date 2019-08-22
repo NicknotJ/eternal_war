@@ -9,6 +9,9 @@ class warGame {
     this.players.push(player);
     this.numPlayers++;
   }
+  addPile(card){
+    this.pile.push(card);
+  }
 }
 
 module.exports = {
