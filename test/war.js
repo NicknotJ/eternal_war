@@ -60,6 +60,20 @@ describe('warGame', () => {
     newGame.giveCards(playerCards);
     assert.equal(newGame.pile.length, 0);
     assert.equal(newGame.players[2].playerDeck.length, 3);
+  });
+  it('Should have a method called receiveCards which takes one card from all of the listed players', () => {
+    let player1 = new player.Player('player1', 10);
+    player1.createPlayerDeck();
+    let player2 = new player.Player('player2', 10);
+    player2.createPlayerDeck();
+    let player3 = new player.Player('player3', 10);
+    player3.createPlayerDeck();
+    let example = new war.warGame(3, []);
+    example.join(player1);
+    example.join(player2);
+    example.join(player3);
+    example.receiveCards();
+    assert.equal(example.pile.length, 3);
   })
 })
 
