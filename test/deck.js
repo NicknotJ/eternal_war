@@ -1,5 +1,5 @@
 const player = require('../player.js');
-const deck = require('../deck.js/index.js');
+const deck = require('../deck.js');
 const chai = require('chai');
 const assert = chai.assert;
 
