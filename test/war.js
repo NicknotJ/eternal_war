@@ -29,6 +29,11 @@ describe('warGame', () => {
     newGame.join({name: 'player3'});
     assert.equal(newGame.players.length, 1);
     assert.equal(newGame.players[0].name, 'player3');
+  });
+  it('Should have a method called addPile which adds a card to the pile', () => {
+    assert.isDefined(newGame.addPile, 'addPile is defined');
+    newGame.addPile({value: 4, suit: 'diamond'});
+    assert.equal(newGame.pile.length, 1);
   })
 })
 
