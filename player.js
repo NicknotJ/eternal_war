@@ -11,6 +11,7 @@ class Player {
   createPlayerDeck(num, deck){
     for(let x = 0; x < num; x++){
       let newCard = deck.splice(Math.floor(Math.random() * deck.length), 1);
+      //add an "owner" key to the deck
       this.playerDeck.push(newCard[0]);
     }
   }

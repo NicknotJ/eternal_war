@@ -39,6 +39,9 @@ describe('Player Class', () => {
     player2.checkStatus();
     assert.equal(player2.playing, false);
     assert.equal(player2.lost, true);
+    player1.checkStatus();
+    assert.equal(player1.playing, true);
+    assert.equal(player1.lost, false);
   });
   it('Should have a quit method that removes all cards from the player deck and sets player status to loss', () => {
     assert.isDefined(player1.quit, 'quit is defined');
