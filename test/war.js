@@ -5,7 +5,7 @@ const deck = require('../deck');
 const war = require('../war');
 
 describe('warGame', () => {
-  const newGame = new war.warGame(4, ['example string'], [{name: 'player1'}, {name: 'player2'}]);
+  const newGame = new war.warGame(4);
   it('Should have a parameter with the number of players', () => {
     assert.equal(newGame.numPlayers, 4);
   });
@@ -27,8 +27,8 @@ describe('warGame', () => {
   it('Should have a method called join which adds a player to the players parameter', () => {
     assert.isDefined(newGame.join, 'join is defined');
     newGame.join({name: 'player3'});
-    assert.equal(newGame.players.length, 3);
-    assert.equal(newGame.players[2].name, 'player3');
+    assert.equal(newGame.players.length, 1);
+    assert.equal(newGame.players[0].name, 'player3');
   })
 })
 
