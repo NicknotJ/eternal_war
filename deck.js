@@ -12,8 +12,6 @@ for(let x = 2; x <= 14; x++){
 for(let x = 2; x <= 14; x++){
   deck.push({value: x, suit: 'diamond'});
 }
-console.log(deck);
-
 module.exports = {
   deck
 }

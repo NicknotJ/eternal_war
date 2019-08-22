@@ -51,12 +51,12 @@ describe('warGame', () => {
     assert.equal(newGame.players.length, 2);
   });
   it('Should have a method called giveCards which gives one player all of the cards in the pile', () => {
-    newGame.join({name: 'playerCards'});
     newGame.addPile({value: 4});
     newGame.addPile({value: 3});
     newGame.addPile({value: 2});
     assert.equal(newGame.pile.length, 3);
     let playerCards = new player.Player('playerCards')
+    newGame.join(playerCards);
     newGame.giveCards(playerCards);
     assert.equal(newGame.pile.length, 0);
     assert.equal(newGame.players[2].playerDeck.length, 3);
