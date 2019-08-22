@@ -15,6 +15,9 @@ class warGame {
   addPile(card){
     this.pile.push(card);
   }
+  removePile(){
+    return this.pile.pop();
+  }
 }
 
 module.exports = {

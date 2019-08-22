@@ -35,11 +35,11 @@ describe('warGame', () => {
     newGame.addPile({value: 4, suit: 'diamond'});
     assert.equal(newGame.pile.length, 1);
   });
-  it('Should have a method called removePile which removes a card from the pile', () => {
+  it('Should have a method called removePile which removes and returns a card from the pile', () => {
     assert.isDefined(newGame.removePile, 'removePile is defined');
-    newGame.removePile();
+    assert.equal(newGame.removePile().value, 4);
     assert.equal(newGame.pile.length, 0);
-  })
+  });
 })
 
 /*class warGame {
