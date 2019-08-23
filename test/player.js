@@ -31,8 +31,6 @@ describe('Player Class', () => {
     let tempCard = {value: randomValue, suit: 'spade'};
     assert.isDefined(player1.receiveCard, 'receiveCard is defined');
     player1.receiveCard(tempCard);
-    assert.notDeepEqual(player1.playerDeck[0], tempCard);
-    tempCard.owner = player1;
     assert.deepEqual(player1.playerDeck[0], tempCard);
   });
   it('Should have a checkStatus method that checks the player deck, setting values to false if necessary', () => {

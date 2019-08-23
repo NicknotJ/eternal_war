@@ -11,7 +11,7 @@ class Player {
   createPlayerDeck(num, deck){
     for(let x = 0; x < num; x++){
       let newCard = deck.splice(Math.floor(Math.random() * deck.length), 1);
-      //add an "owner" key to the deck
+      newCard[0].owner = this;
       this.playerDeck.push(newCard[0]);
     }
   }
@@ -19,6 +19,7 @@ class Player {
     return this.playerDeck.pop();
   }
   receiveCard(card){
+    card.owner = this;
     this.playerDeck.unshift(card);
   }
   checkStatus(){
