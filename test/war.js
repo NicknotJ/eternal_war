@@ -6,6 +6,7 @@ const war = require('../war');
 
 describe('warGame', () => {
   const newGame = new war.warGame(4);
+  //need a beforeEach that sets up a fake game.
   it('Should have a parameter with the number of players', () => {
     assert.equal(newGame.numPlayers, 4);
   });
@@ -75,6 +76,9 @@ describe('warGame', () => {
     example.receiveCards();
     assert.equal(example.pile.length, 3);
   });
+  it('Should have a method called determineWinner that compares all cards and, if possible, returns a single winner', () => {
+
+  })
 })
 
 /*class warGame {
