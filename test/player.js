@@ -13,12 +13,14 @@ describe('Player Class', () => {
     assert.equal(player1.startingHandSize, 26);
     assert.equal(player2.startingHandSize, 10);
   });
-  it('Should have a createPlayerDeck method that creates a playerDeck the size of the input', () => {
+  it('Should have a createPlayerDeck method that creates a playerDeck the size of the input AND labels player as owner', () => {
     assert.isDefined(player1.createPlayerDeck, 'createPlayerDeck is defined');
     player1.createPlayerDeck(player1.startingHandSize, tempDeck);
     assert.equal(player1.playerDeck.length, 26);
+    assert.equal(player1.playerDeck[0].owner, player1);
     player2.createPlayerDeck(player2.startingHandSize, tempDeck);
     assert.equal(player2.playerDeck.length, 10);
+    assert.equal(player2.playerDeck[0].owner, player2);
   });
   it('Should have a playCard method that pops/returns the last card of the playerdeck', () => {
     assert.equal(player1.playerDeck[player1.playerDeck.length - 1], player1.playCard());
@@ -29,7 +31,9 @@ describe('Player Class', () => {
     let tempCard = {value: randomValue, suit: 'spade'};
     assert.isDefined(player1.receiveCard, 'receiveCard is defined');
     player1.receiveCard(tempCard);
-    assert.equal(player1.playerDeck[0], tempCard);
+    assert.notDeepEqual(player1.playerDeck[0], tempCard);
+    tempCard.owner = player1;
+    assert.deepEqual(player1.playerDeck[0], tempCard);
   });
   it('Should have a checkStatus method that checks the player deck, setting values to false if necessary', () => {
     assert.isDefined(player2.checkStatus, 'checkStatus is defined');
