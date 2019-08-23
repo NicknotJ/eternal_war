@@ -40,6 +40,10 @@ class warGame {
       this.addPile(this.players[x].playCard());
     }
   }
+  determineWinner(){
+    //At first, this will just return to the winner, but ultimately needs to judge ties and do WAR!!!!
+    
+  }
 }
 
 module.exports = {
