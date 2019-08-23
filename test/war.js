@@ -74,7 +74,7 @@ describe('warGame', () => {
     example.join(player3);
     example.receiveCards();
     assert.equal(example.pile.length, 3);
-  })
+  });
 })
 
 /*class warGame {
