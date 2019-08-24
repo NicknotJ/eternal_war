@@ -48,8 +48,7 @@ class warGame {
         winnerArray = [];
         winnerArray.push(this.pile[x].owner);
         maxValue = this.pile[x].value;
-      }
-      if(this.pile[x].value === maxValue){
+      } else if(this.pile[x].value === maxValue){
         winnerArray.push(this.pile[x].owner);
       }
     }

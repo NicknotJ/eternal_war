@@ -78,13 +78,16 @@ describe('warGame', () => {
   });
   it('Should have a method called determineWinner that compares all cards and, if possible, returns a single winner', () => {
     let example = new war.warGame(3, []);
-    let player1 = new player.Player('player1', 2);
+    let player1 = new player.Player('player1', 3);
     player1.receiveCard({value: 4, suit: 'diamond'});
     player1.receiveCard({value: 4, suit: 'diamond'});
-    let player2 = new player.Player('player2', 2);
+    player1.receiveCard({value: 4, suit: 'diamond'});
+    let player2 = new player.Player('player2', 3);
     player2.receiveCard({value: 3, suit: 'diamond'});
     player2.receiveCard({value: 3, suit: 'diamond'});
-    let player3 = new player.Player('player3', 2);
+    player2.receiveCard({value: 3, suit: 'diamond'});
+    let player3 = new player.Player('player3', 3);
+    player3.receiveCard({value: 2, suit: 'diamond'});
     player3.receiveCard({value: 2, suit: 'diamond'});
     player3.receiveCard({value: 2, suit: 'diamond'});
     example.join(player1);
@@ -92,6 +95,19 @@ describe('warGame', () => {
     example.join(player3);
     example.receiveCards();
     assert.equal(example.determineWinner()[0], player1);
+    let example2 = new war.warGame(0, []);
+    let player4 = new player.Player('player4', 2);
+    let player5 = new player.Player('player5', 2);
+    player4.receiveCard({value: 4, suit: 'spade'});
+    player4.receiveCard({value: 4, suit: 'spade'});
+    player5.receiveCard({value: 4, suit: 'club'});
+    player5.receiveCard({value: 4, suit: 'club'});
+    example2.join(player4);
+    example2.join(player5);
+    example2.receiveCards();
+    console.log(example2.determineWinner());
+    assert.equal(example2.determineWinner().length, 2);
+    
   })
 })
 
