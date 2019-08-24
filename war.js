@@ -41,8 +41,20 @@ class warGame {
     }
   }
   determineWinner(){
-    //At first, this will just return to the winner, but ultimately needs to judge ties and do WAR!!!!
-    
+    let winnerArray = [];
+    let maxValue = 0;
+    for(let x = 0; x < this.pile.length; x++){
+      if(this.pile[x].value > maxValue){
+        winnerArray = [];
+        winnerArray.push(this.pile[x].owner);
+        maxValue = this.pile[x].value;
+      }
+      if(this.pile[x].value === maxValue){
+        winnerArray.push(this.pile[x].owner);
+      }
+    }
+    return winnerArray;
+    //excess pile for ties?
   }
 }
 
