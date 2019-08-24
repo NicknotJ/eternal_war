@@ -77,7 +77,21 @@ describe('warGame', () => {
     assert.equal(example.pile.length, 3);
   });
   it('Should have a method called determineWinner that compares all cards and, if possible, returns a single winner', () => {
-
+    let example = new war.warGame(3, []);
+    let player1 = new player.Player('player1', 2);
+    player1.receiveCard({value: 4, suit: 'diamond'});
+    player1.receiveCard({value: 4, suit: 'diamond'});
+    let player2 = new player.Player('player2', 2);
+    player2.receiveCard({value: 3, suit: 'diamond'});
+    player2.receiveCard({value: 3, suit: 'diamond'});
+    let player3 = new player.Player('player3', 2);
+    player3.receiveCard({value: 2, suit: 'diamond'});
+    player3.receiveCard({value: 2, suit: 'diamond'});
+    example.join(player1);
+    example.join(player2);
+    example.join(player3);
+    example.receiveCards();
+    assert.equal(example.determineWinner()[0], player1);
   })
 })
 
