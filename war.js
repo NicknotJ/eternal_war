@@ -8,6 +8,7 @@ class warGame {
     this.pile = pile;
     this.players = players;
     this.gameOver = false;
+    this.leftOverPile = [];
   }
   join(player){
     this.players.push(player);

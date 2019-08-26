@@ -119,6 +119,16 @@ describe('warGame', () => {
     console.log(example);
     assert.equal(example.winner, player1);
   });
+  it('Should have a method called addLeftover that adds a card to the leftover pile', () => {
+    let example = new war.warGame(2, [], [player1, player2]);
+    example.addLeftOver({value: 2, suit: 'club'});
+    assert.equal(example.leftOverPile.length, 1);
+    example.addLeftOver({value: 2, suit: 'spade'});
+    assert.equal(example.leftOverPile.length, 2);
+  });
+  it('Should have a method called warTie that does the war mechanic with players who tied', () => {
+    //to do
+  });
 })
 
 /*class warGame {
