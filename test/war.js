@@ -133,7 +133,7 @@ describe('warGame', () => {
     assert.equal(example.leftOverPile.length, 2);
   })
   it('Should have a method called warTie that does the war mechanic with players who tied', () => {
-    //to do
+    
   });
 })
 
