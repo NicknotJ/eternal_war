@@ -125,6 +125,13 @@ describe('warGame', () => {
     example.addLeftOver({value: 2, suit: 'spade'});
     assert.equal(example.leftOverPile.length, 2);
   });
+  it('Should have a method called pileToLeftOver that removes all cards from pile and adds to leftOver', () => {
+    let example = new war.warGame(2, [{value: 2, suit: 'club'}, {value: 2, suit: 'spade'}]);
+    assert.equal(example.pile.length, 2);
+    example.pileToLeftOver();
+    assert.equal(example.pile.length, 0);
+    assert.equal(example.leftOverPile.length, 2);
+  })
   it('Should have a method called warTie that does the war mechanic with players who tied', () => {
     //to do
   });
