@@ -104,11 +104,20 @@ describe('warGame', () => {
     player5.receiveCard({value: 4, suit: 'club'});
     example2.join(player4);
     example2.join(player5);
-    example2.receiveCards();
-    console.log(example2.determineWinner());
+    example2.receiveCards();;
     assert.equal(example2.determineWinner().length, 2);
-    
-  })
+  });
+  it('Should have a method called checkGame that looks at the number of players and changes game status if there is one left', () => {
+    let player1 = new player.Player('player1', 2);
+    let player2 = new player.Player('player2', 2);
+    let example = new war.warGame(2, [], [player1, player2]);
+    let player3 = new player.Player('player3', 3);
+    example.join(player3);
+    example.removePlayer(player2);
+    example.removePlayer(player3);
+    example.checkGame();
+    assert.equal(example.winner, player1);
+  });
 })
 
 /*class warGame {
