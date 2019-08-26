@@ -23,6 +23,12 @@ class warGame {
   addLeftOver(card){
     this.leftOverPile.push(card);
   }
+  pileToLeftOver(){
+    let length = this.pile.length;
+    for(let x = 0; x < length; x++){
+      this.addLeftOver(this.removePile());
+    }
+  }
   //this might need to be changed to reference a variable rather than a string
   removePlayer(playerName){
     for(let x = 0; x < this.players.length; x++){
