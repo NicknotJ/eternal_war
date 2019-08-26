@@ -116,11 +116,10 @@ describe('warGame', () => {
     example.removePlayer(player2.name);
     example.removePlayer(player3.name);
     example.checkGame();
-    console.log(example);
     assert.equal(example.winner, player1);
   });
   it('Should have a method called addLeftover that adds a card to the leftover pile', () => {
-    let example = new war.warGame(2, [], [player1, player2]);
+    let example = new war.warGame(2, []);
     example.addLeftOver({value: 2, suit: 'club'});
     assert.equal(example.leftOverPile.length, 1);
     example.addLeftOver({value: 2, suit: 'spade'});

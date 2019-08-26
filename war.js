@@ -20,6 +20,9 @@ class warGame {
   removePile(){
     return this.pile.pop();
   }
+  addLeftOver(card){
+    this.leftOverPile.push(card);
+  }
   //this might need to be changed to reference a variable rather than a string
   removePlayer(playerName){
     for(let x = 0; x < this.players.length; x++){
@@ -58,7 +61,6 @@ class warGame {
     return winnerArray;
     //excess pile for ties?
   }
-
   checkGame(){
     if(this.players.length === 1){
       this.gameOver = true;
