@@ -7,6 +7,7 @@ class warGame {
     this.handWinner = undefined;
     this.pile = pile;
     this.players = players;
+    this.gameOver = false;
   }
   join(player){
     this.players.push(player);
@@ -22,6 +23,7 @@ class warGame {
   removePlayer(playerName){
     for(let x = 0; x < this.players.length; x++){
       if(this.players[x].name === playerName){
+        this.numPlayers--;
         this.players.splice(x, 1);
         break;
       }
@@ -54,6 +56,18 @@ class warGame {
     }
     return winnerArray;
     //excess pile for ties?
+  }
+
+  checkGame(){
+    if(this.players.length === 1){
+      this.gameOver = true;
+      this.winner = this.players[0];
+    }
+    if(this.players.length === 0){
+      this.gameOver = true;
+      this.winner = null;
+    }
+    return this.gameOver;
   }
 }
 
