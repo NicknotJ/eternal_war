@@ -113,9 +113,10 @@ describe('warGame', () => {
     let example = new war.warGame(2, [], [player1, player2]);
     let player3 = new player.Player('player3', 3);
     example.join(player3);
-    example.removePlayer(player2);
-    example.removePlayer(player3);
+    example.removePlayer(player2.name);
+    example.removePlayer(player3.name);
     example.checkGame();
+    console.log(example);
     assert.equal(example.winner, player1);
   });
 })
