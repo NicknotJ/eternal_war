@@ -78,6 +78,26 @@ class warGame {
     }
     return this.gameOver;
   }
+  warTie(players){
+    console.log(this.pile);
+    console.log(this.leftOverPile);
+    //players is expected to be an array
+    if(players.length === 1){
+      return players[0];
+    }
+    if(players.length === 0){
+      return null;
+    }
+    //remove everything from pile
+    this.pileToLeftOver();
+    for(let x = 0; x < players.length; x++){
+      this.addLeftOver(players[x].playCard());
+      this.addLeftOver(players[x].playCard());
+      this.addLeftOver(players[x].playCard());
+      this.addPile(players[x].playCard());
+    }
+    return this.warTie(this.determineWinner());
+  }
 }
 
 module.exports = {

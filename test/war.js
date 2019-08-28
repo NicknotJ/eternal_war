@@ -163,6 +163,10 @@ describe('warGame', () => {
     player4.receiveCard({value: 2, suit: 'heart'});
     player4.receiveCard({value: 2, suit: 'heart'});
     player4.receiveCard({value: 2, suit: 'heart'});
+    example.addPile(player1.playCard());
+    example.addPile(player2.playCard());
+    example.addPile(player3.playCard());
+    example.addPile(player4.playCard());
     assert.equal(example.warTie(example.determineWinner()), player1);
   });
 })
