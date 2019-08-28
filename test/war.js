@@ -133,7 +133,37 @@ describe('warGame', () => {
     assert.equal(example.leftOverPile.length, 2);
   })
   it('Should have a method called warTie that does the war mechanic with players who tied', () => {
-    
+    let example = new war.warGame(0);
+    let player1 = new player.Player('player1');
+    let player2 = new player.Player('player2');
+    let player3 = new player.Player('player3');
+    let player4 = new player.Player('player4');
+    example.join(player1);
+    example.join(player2);
+    example.join(player3);
+    example.join(player4);
+    player1.receiveCard({value: 5, suit: 'club'});
+    player1.receiveCard({value: 5, suit: 'club'});
+    player1.receiveCard({value: 5, suit: 'club'});
+    player1.receiveCard({value: 5, suit: 'club'});
+    player1.receiveCard({value: 7, suit: 'club'});
+    player2.receiveCard({value: 5, suit: 'diamond'});
+    player2.receiveCard({value: 5, suit: 'diamond'});
+    player2.receiveCard({value: 5, suit: 'diamond'});
+    player2.receiveCard({value: 5, suit: 'diamond'});
+    player2.receiveCard({value: 5, suit: 'diamond'});
+    player3.receiveCard({value: 2, suit: 'spade'});
+    player3.receiveCard({value: 2, suit: 'spade'});
+    player3.receiveCard({value: 2, suit: 'spade'});
+    player3.receiveCard({value: 2, suit: 'spade'});
+    player3.receiveCard({value: 2, suit: 'spade'});
+    player3.receiveCard({value: 2, suit: 'spade'});
+    player4.receiveCard({value: 2, suit: 'heart'});
+    player4.receiveCard({value: 2, suit: 'heart'});
+    player4.receiveCard({value: 2, suit: 'heart'});
+    player4.receiveCard({value: 2, suit: 'heart'});
+    player4.receiveCard({value: 2, suit: 'heart'});
+    assert.equal(example.warTie(example.determineWinner()), player1);
   });
 })
 
