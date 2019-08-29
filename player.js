@@ -29,10 +29,11 @@ class Player {
     }
   }
   quit(){
-    let length = this.playerDeck.length;
+    /*let length = this.playerDeck.length;
     for(let x = 0; x < length; x++){
       this.playCard();
-    }
+    }*/
+    this.playerDeck.length = 0;
     this.playing = false;
     this.lost = true;
   }
