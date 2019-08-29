@@ -79,8 +79,6 @@ class warGame {
     return this.gameOver;
   }
   warTie(players){
-    console.log(this.pile);
-    console.log(this.leftOverPile);
     //players is expected to be an array
     if(players.length === 1){
       return players[0];
