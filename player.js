@@ -27,6 +27,7 @@ class Player {
       this.playing = false;
       this.lost = true;
     }
+    return this.playing;
   }
   quit(){
     /*let length = this.playerDeck.length;

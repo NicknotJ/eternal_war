@@ -88,11 +88,32 @@ class warGame {
     }
     //remove everything from pile
     this.pileToLeftOver();
+    let removedPlayers = [];
     for(let x = 0; x < players.length; x++){
+      if(!players[x].checkStatus()){
+        removedPlayers.push(players[x]);
+        break;
+      }
       this.addLeftOver(players[x].playCard());
+      if(!players[x].checkStatus()){
+        removedPlayers.push(players[x]);
+        break;
+      }
       this.addLeftOver(players[x].playCard());
+      if(!players[x].checkStatus()){
+        removedPlayers.push(players[x]);
+        break;
+      }
       this.addLeftOver(players[x].playCard());
+      if(!players[x].checkStatus()){
+        removedPlayers.push(players[x]);
+        break;
+      }
       this.addPile(players[x].playCard());
+    }
+    let length = removedPlayers.length;
+    for(let x = length - 1; x >= 0; x--){
+      this.removePlayer(removedPlayers[x]);
     }
     return this.warTie(this.determineWinner());
   }
