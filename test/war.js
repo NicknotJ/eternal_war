@@ -76,6 +76,26 @@ describe('warGame', () => {
     example.receiveCards();
     assert.equal(example.pile.length, 3);
   });
+  it('It`s method receiveCards should check each player before receiving cards', () => {
+    let player1 = new player.Player('player1', 3);
+    player1.createPlayerDeck();
+    let player2 = new player.Player('player2', 2);
+    player2.createPlayerDeck();
+    let player3 = new player.Player('player3', 1);
+    player3.createPlayerDeck();
+    let example = new war.warGame(0, []);
+    example.join(player1);
+    example.join(player2);
+    example.join(player3);
+    example.receiveCards();
+    assert.equal(example.players.length, 3);
+    example.receiveCards();
+    assert.equal(example.players.length, 2);
+    example.receiveCards();
+    assert.equal(example.players.length, 1);
+    example.receiveCards();
+    assert.equal(example.players.length, 0);
+  });
   it('Should have a method called determineWinner that compares all cards and, if possible, returns a single winner', () => {
     let example = new war.warGame(3, []);
     let player1 = new player.Player('player1', 3);
